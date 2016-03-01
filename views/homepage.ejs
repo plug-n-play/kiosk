@@ -1,9 +1,13 @@
 <!-- Default home page -->
 <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'> -->
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/js/dependencies/assets/owl.carousel.css" type="text/css" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link href='https://fonts.googleapis.com/css?family=Kaushan+Script|Ropa+Sans|Pontano+Sans|Cinzel' rel='stylesheet' type='text/css'>
+<!-- <link href='https://fonts.googleapis.com/css?family=Kaushan+Script|Ropa+Sans|Pontano+Sans|Cinzel' rel='stylesheet' type='text/css'> -->
 <style>
+   . {
+    font-family: 'Montserrat', sans-serif;
+   }
    .welcome-panel {
    position: fixed;
    background-color: #d7234e;
@@ -34,10 +38,13 @@
    opacity: 0;
   }
   .welcome-greeting {
-    font-family: 'Helvetica';
+    /*font-family: 'Helvetica';*/
   }
   #cls-blk-quote {
-    display: none;;
+    display: none;
+    position: absolute;
+    left: 122px;
+    bottom: 75px;
   }
 
   #blk-quote {
@@ -60,12 +67,13 @@
         <span id="greeting"></span> <span id="name"></span>!
       </h2>
 
-      <p class="welcome-text" style="margin-top: 30px;">Marriott welcomes you to the 
+      <p class="welcome-text" style="margin-top: 30px;">Welcome to Marriott! Our core values make us who we are. As we change and grow, the beliefs that are most important to us stay the same—putting people first, pursuing excellence, embracing change, acting with integrity and serving our world. Being part of Marriott International means being part of a proud history and a thriving culture.
          <span id ="hotelName" > 
          </span>
       </p>
-      <p class="welcome-text">You are now successfully checked in. Enjoy your stay from
-         <span id="starDate"></span> to <span id="endDate"></span>
+
+      <p class="welcome-text">Enjoy your stay from
+         <span id="starDate"></span> to <span id="endDate"></span>.
       </p>
 
       <div id="cls-blk-quote">
@@ -81,11 +89,11 @@
 <script type"text/javascript">
    var res;
    var count =0;
-   var greetingMsgArray = ["Welcome","Happy Birthday","Happy Aniversary","Good Morning", "Good Evening"];
+   var greetingMsgArray = ["Happy Birthday"]; //, "Welcome","Happy Aniversary","Good Morning", "Good Evening";
 
-   var quoteArray = ["Success seems to be connected to action. Successful people keep moving. They make mistakes, but they never quit",
+   var quoteArray = ["Success seems to be connected to action. Successful people keep moving. They make mistakes, but they never quit.",
    "Great companies are built by people who never stop thinking about ways to improve the business.",
-   "A man should keep on being constructive, and do constructive things. He should take part in the things that go on in this wonderful world. He should be someone to be reckoned with. He should live life and make every day count, to the very end.","Take care of your people and they will take care of your customers", 
+   "A man should keep on being constructive, and do constructive things. He should take part in the things that go on in this wonderful world. He should be someone to be reckoned with. He should live life and make every day count, to the very end.","Take care of your people and they will take care of your customers.", 
    "No person can get very far in life working 40 hours a week."];
 
    io.socket.on('myEvent', function(data) {
@@ -130,7 +138,7 @@
       $("#name").html(res.userName); 
       $("#starDate").html(res.starDate); 
       $("#endDate").html(res.endDate); 
-      $("#hotelName").html(res.hotelName); 
+      // $("#hotelName").html(res.hotelName); 
       $("#greeting").html(greetingMsg);
       $("#blk-quote").html(quote);
        
